@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Softdev2-1</title>
+</head>
+<body>
+  Select a background picture
+  <select id="picBox" name="picBox">
+    <option value="0">Nice Pic</option>
+    <option value="1">Nicer Pic</option>
+  </select>
+<br>
+  Select a shape
+  <select id="shape" name="shape">
+    <option value="0">Circle</option>
+    <option value="1">Rectangle</option>
+  </select>
+  <br>
+  Your coords
+  <input type="text" readonly="readonly" name="coords" id="coords" placeholder="[0,0]">
+  <br>
+  <canvas width="600" height="450" style="border: 1px solid black;" class="box" id="myCanvas"></canvas>
+<br>
+  <button type="button" id="clear" name="clear">clear</button>
+  <script type="text/javascript" onload="loaded=1" src="canvas.js"></script>
+</body>
