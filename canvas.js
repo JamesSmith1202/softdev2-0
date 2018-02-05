@@ -9,6 +9,8 @@ var mouseX;
 var mouseY;
 var radius = 10;
 var context = canvas.getContext('2d');
+var xPrev;
+var yPrev;
 
 var changePic = function(e){
     selection = picBox.options[picBox.selectedIndex].value;
@@ -23,6 +25,14 @@ var placeDot = function(e){
     mouseX = e.pageX - bounds.left - scrollX;
     mouseY = e.pageY - bounds.top - scrollY;
     context.beginPath();
+    if (xPrev != null){
+	context.moveTo(xPrev, yPrev);
+	context.lineTo(mouseX, mouseY);
+	context.stroke();
+    }
+    xPrev = mouseX;
+    yPrev = mouseY;
+    context.beginPath()
     if(shape.selectedIndex == 0){
 	context.arc(mouseX, mouseY, radius, 0, 2 * Math.PI, false);	
     }
