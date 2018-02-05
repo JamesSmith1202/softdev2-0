@@ -30,15 +30,17 @@ var placeDot = function(e){
 	context.lineTo(mouseX, mouseY);
 	context.stroke();
     }
-    xPrev = mouseX;
-    yPrev = mouseY;
     context.beginPath()
     if(shape.selectedIndex == 0){
 	context.arc(mouseX, mouseY, radius, 0, 2 * Math.PI, false);	
     }
     else{
-	context.rect(mouseX-10, mouseY-10, 20, 20)
+	mouseX -= 10;
+	mouseY -= 10;
+	context.rect(mouseX, mouseY, 20, 20)
     }
+    xPrev = mouseX;
+    yPrev = mouseY;
     context.fillStyle = 'red';
     context.strokeStyle = 'black';
     context.lineWidth = 3;
@@ -60,6 +62,8 @@ var preloadImages = function(){
 var clearScreen = function(){
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(pic[selection],0,0);
+    xPrev = null;
+    yPrev = null;
 }
 
 window.onload = preloadImages;
